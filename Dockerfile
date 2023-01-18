@@ -10,4 +10,4 @@ RUN \
   && chmod +x  /usr/local/bin/grpcurl \
   && curl -L https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.7/kustomize_v4.5.7_linux_amd64.tar.gz  | tar -xz -C /usr/local/bin/ \
   && chmod +x  /usr/local/bin/kubectl \
-  && apk add --update coreutils && rm -rf /var/cache/apk/*
+  && apk add --update coreutils envsubst && rm -rf /var/cache/apk/*
