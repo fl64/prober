@@ -30,3 +30,9 @@ push_latest: push latest
 lint:
 	docker run --rm -v $(PWD):/app:ro -w /app golangci/golangci-lint:$(GOLANGLINT_VER) golangci-lint run -v
 	docker run --rm -v "${PWD}":/app:ro -w /app hadolint/hadolint:$(HADOLINT_VER) hadolint /app/Dockerfile
+
+test:
+	docker run --rm $(CONTAINER_NAME_TAG) certinfo -version
+	docker run --rm $(CONTAINER_NAME_TAG) goss -v
+	docker run --rm $(CONTAINER_NAME_TAG) crane version
+	docker run --rm $(CONTAINER_NAME_TAG) kustomize version
