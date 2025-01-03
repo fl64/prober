@@ -32,7 +32,4 @@ lint:
 	docker run --rm -v "${PWD}":/app:ro -w /app hadolint/hadolint:$(HADOLINT_VER) hadolint /app/Dockerfile
 
 test:
-	docker run --rm $(CONTAINER_NAME_TAG) certinfo -version
-	docker run --rm $(CONTAINER_NAME_TAG) goss -v
-	docker run --rm $(CONTAINER_NAME_TAG) crane version
-	docker run --rm $(CONTAINER_NAME_TAG) kustomize version
+	docker run --rm $(CONTAINER_NAME_TAG) certinfo -version && goss -v && crane version && kustomize version && iperf3 --version
